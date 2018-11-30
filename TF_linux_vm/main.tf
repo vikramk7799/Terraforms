@@ -56,8 +56,8 @@ resource "aws_instance" "demo" {
   security_groups = ["aws_sg"]
   
   provisioner "file" {
-  source="tomcat.sh"
-  destination="/tmp/tomcat.sh"
+  source="lamp.sh"
+  destination="/tmp/lamp.sh"
   }
   provisioner "file" {
   source="DemoDec.war"
@@ -66,8 +66,8 @@ resource "aws_instance" "demo" {
   provisioner "remote-exec" {
     inline=[
     "sleep 300",
-    "chmod +x /tmp/tomcat.sh",
-    "sudo /tmp/tomcat.sh"
+    "chmod +x /tmp/lamp.sh",
+    "sudo /tmp/lamp.sh"
      ]
   }
   connection {
